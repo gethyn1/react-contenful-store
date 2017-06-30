@@ -276,7 +276,7 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-"axios@github:contentful/axios#fix/https-via-http-proxy":
+axios@contentful/axios#fix/https-via-http-proxy:
   version "0.16.3"
   resolved "https://codeload.github.com/contentful/axios/tar.gz/486c956313b4937d83202ae72304d3eb210487bb"
   dependencies:
