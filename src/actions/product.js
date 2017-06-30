@@ -24,10 +24,12 @@ export const productFetchDataSuccess = (payload: Array<Object>) => ({
 export const productFetchData = (id: String) => (dispatch: Function) => {
   dispatch(productIsLoading(true))
 
-  return client.getEntry(id)
+  return client.getEntries({
+    'sys.id': id,
+  })
     .then((response) => {
       dispatch(productIsLoading(false))
-      dispatch(productFetchDataSuccess(response))
+      dispatch(productFetchDataSuccess(response.items[0]))
     })
     .catch(() => {
       dispatch(productIsLoading(false))

@@ -26,8 +26,7 @@ class Product extends React.Component {
     this.props.addItemToCart({
       id: this.props.productId,
       title: this.props.product.fields.productTitle,
-      quantity: 1,
-    })
+    }, 1)
   }
 
   onAddItemToCart: Function
@@ -48,11 +47,17 @@ class Product extends React.Component {
       return <p>There was an error</p>
     }
 
+    const {
+      productTitle,
+      productImage,
+      productDescription,
+    } = product.fields
+
     return (
       <div>
-        <h2>{product.fields.productTitle}</h2>
-        <img src={product.fields.productImage} alt="test" />
-        <p>{product.fields.productDescription}</p>
+        <h2>{productTitle}</h2>
+        <img src={`${productImage.fields.file.url}?w=300&h=300&fit=thumb&f=top`} alt={productImage.fields.title} />
+        <p>{productDescription}</p>
         <button onClick={this.onAddItemToCart}>Add to cart</button>
       </div>
     )

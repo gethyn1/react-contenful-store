@@ -1,24 +1,23 @@
 // @flow
-/* eslint-disable */
 import { connect } from 'react-redux'
 
 import { cartRemoveItem } from '../actions/cart'
 import Cart from '../components/Cart'
 
 const mapStateToProps = (state: Object) => ({
+  totalItems: state.cart.totalItems,
   items: state.cart.items,
 })
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  removeItem: () => {
-    console.log('Remove item')
+  removeItem: (id: String, quantity: number) => {
+    dispatch(cartRemoveItem({ id, quantity }))
   },
 })
 
-const AllProducts = connect(
+const ProductsInCart = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Cart)
 
-export default AllProducts
-/* eslint-enable */
+export default ProductsInCart

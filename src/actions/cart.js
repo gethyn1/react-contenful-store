@@ -8,7 +8,7 @@ export const cartAddItem = (payload: Object) => ({
   payload,
 })
 
-export const cartRemoveItem = (payload: String) => ({
+export const cartRemoveItem = (payload: Object) => ({
   type: REMOVE_ITEM_FROM_CART,
   payload,
 })

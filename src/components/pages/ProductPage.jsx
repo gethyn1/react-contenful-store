@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 
 import { APP_NAME } from '../../config'
 
-import Cart from '../../containers/Cart'
+import ProductsInCart from '../../containers/ProductsInCart'
 import SingleProduct from '../../containers/SingleProduct'
 
 const title = 'Product page'
@@ -19,7 +19,7 @@ const PostPage = () => (
         { property: 'og:title', content: `${APP_NAME}: ${title}` },
       ]}
     />
-    <Cart />
+    <ProductsInCart />
     <SingleProduct />
   </div>
 )

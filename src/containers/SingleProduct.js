@@ -19,8 +19,8 @@ const mapDispatchToProps = (dispatch: Function) => ({
   fetchProduct: (id: String) => {
     dispatch(productFetchData(id))
   },
-  addItemToCart: (item: Object) => {
-    dispatch(cartAddItem(item))
+  addItemToCart: (item: Object, quantity: number) => {
+    dispatch(cartAddItem({ item, quantity }))
   },
 })
 
