@@ -1,0 +1,15 @@
+[options]
+suppress_comment= \\(.\\|\n\\)*\\flow-disable-next-line
+module.name_mapper='\(redux\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
+module.name_mapper='\(react-redux\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
+module.name_mapper='\(shortid\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
+module.name_mapper='\(react-router\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
+module.name_mapper='\(react-router-dom\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
+module.name_mapper='\(react-helmet\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
+module.name_mapper='\(contentful\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
+module.name_mapper='.*\(.css\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
+module.name_mapper='.*\(.scss\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
+
+[ignore]
+.*/node_modules/.*
+.*/node_modules/jss/.*
