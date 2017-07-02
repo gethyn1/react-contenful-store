@@ -1,0 +1,30 @@
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+
+/**
+ * Hierarchical heading styles are applied using utility classes. Base heading
+ * elements (h1 - 6) are left unstyled and used purely for html semantics. This
+ * allows use of purpose driven heading styles that can be used on any heading
+ * element.
+ */
+
+:global(
+	.u-h1,
+	.u-h2,
+	.u-h3
+) {
+	font-weight: normal;
+}
+
+:global(.u-h1) {
+	@include generate-type-sizes($h1-type-sizes, 'rem');
+}
+
+:global(.u-h2) {
+	@include generate-type-sizes($h2-type-sizes, 'rem');
+}
+
+:global(.u-h3) {
+	@include generate-type-sizes($h3-type-sizes, 'rem');
+}

@@ -1,0 +1,87 @@
+/* ==========================================================================
+   #GLOBAL
+   ========================================================================== */
+
+/// Set global font-size in px
+/// @group global
+$global-font-size: 16px !default;
+
+/// Set global line-height in px. This is converted to a relative unit
+/// @group global
+$global-line-height: 24px !default;
+
+/// Set global body font
+/// @group global
+$global-body-font: 'Karla', sans-serif;
+
+/// Set base type sizes for the body element. Sass map properties names
+/// should map to breakpoint properties defined in $mq-breakpoints map in
+/// `1-settings/settings.breakpoints.scss`. Map property values use the
+/// format `(font-size, line-height)`.
+/// @group global
+$global-type-sizes: (
+	tablet: (18, 26.1)
+) !default;
+
+/// Set global spacing unit
+/// @group global
+$global-spacing-unit: round($global-line-height) !default;
+
+/// Set global css transition speed
+/// @group global
+$global-transition-speed: .2s;
+
+/// Set global css transition function
+/// @group global
+$global-transition-func: ease-in-out;
+
+/// Set global css transition values
+/// @group global
+$global-transition: all .2s ease;
+
+/// Set global border-radius
+/// @group global
+$global-radius: 3px;
+
+/// Set a default background color for image placeholders
+/// @group global
+$global-img-placeholder-background: rgba(0,0,0,0.02);
+
+/// Set global spacing unit multiplier (xsm)
+/// @group global
+$global-spacing-factor-xsm: 0.25 !default;
+
+/// Set global spacing unit multiplier (sm)
+/// @group global
+$global-spacing-factor-sm: 0.5 !default;
+
+/// Set global spacing unit multiplier (lg)
+/// @group global
+$global-spacing-factor-lg: 2 !default;
+
+/// Set global spacing unit multiplier (xlg)
+/// @group global
+$global-spacing-factor-xlg: 4 !default;
+
+
+
+
+
+/// @ignore
+/// These values are updated automatically and shouldn't be updated
+$global-spacing-unit-xsm: round($global-spacing-unit * $global-spacing-factor-xsm);
+$global-spacing-unit-sm: round($global-spacing-unit * $global-spacing-factor-sm);
+$global-spacing-unit-lg: round($global-spacing-unit * $global-spacing-factor-lg);
+$global-spacing-unit-xlg: round($global-spacing-unit * $global-spacing-factor-xlg);
+
+
+
+
+
+/// @ignore
+/// Reassign units for easier use
+$unit-xsm: $global-spacing-unit-xsm;
+$unit-sm: $global-spacing-unit-sm;
+$unit: $global-spacing-unit;
+$unit-lg: $global-spacing-unit-lg;
+$unit-xlg: $global-spacing-unit-xlg;

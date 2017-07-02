@@ -1,0 +1,104 @@
+/* ==========================================================================
+   #TYPOGRAPHY
+   ========================================================================== */
+
+/// Helper mixin to output font-size unit as type. Used to run other helper
+/// functions for em or rem units.
+///
+/// @group typography
+///
+/// @param {Number} $font-size - a number for font-size
+/// @param {Unit type} $unit - either *rem*, *em* or *px*
+///
+/// @example scss - sass usage
+///		.element-with-font-size {
+///			@include type-unit(12, px);
+///		}
+///
+/// @example css - css output
+///		.element-with-font-size {
+///			font-size: 12px;
+///		}
+@mixin type-unit($font-size, $unit: $global-unit) {
+	@if $unit == 'rem' {
+		font-size: rem($font-size);
+	}
+	@elseif $unit == 'em' {
+		font-size: em($font-size);
+	}
+	@else {
+		font-size: #{$font-size}px;
+	}
+}
+
+
+
+
+
+/// Generates type sizes and line-height across breakpoints
+///
+/// @group typography
+///
+/// @param {sass map} $map - sass map of values referencing SASS MQ
+/// breakpoints e.g. *mobile*. Each item in the sass map is a 2 item list in
+/// the format *(font-size, line-height)*.
+///
+/// @example scss - Basic usage sass
+///		h1 {
+///			@include generate-type-sizes(
+///				(mobile: (30px, 45px), desktop: (48px, 67.2px))
+///			);
+///		}
+///
+/// @example css - css output
+/// 	h1 {
+///			font-size: 1.875rem;
+///			line-height: 1.5;
+///		}
+///		@media (min-width: 61.25em) {
+///			.u-h1 {
+///				font-size: 3rem;
+///				line-height: 1.4;
+///			}
+///		}
+@mixin generate-type-sizes($map: $global-type-sizes, $unit: 'em') {
+
+	$current-size: 0;
+	$current-line-height: 0;
+	$i: 0;
+
+	@each $bp-name, $base in $map {
+
+		// Get font-size and calculate line-height ratio from sass map
+		$font-size: nth($base, 1);
+		$line-height: if(nth($base, 2) != 'inherit', nth($base, 2) / $font-size, false);
+
+		// No breakpoint for default or first value
+		@if $bp-name == 'mobile' {
+			@include type-unit($font-size, $unit);
+			@if $line-height {
+				line-height: $line-height;
+			}
+
+		// Only write css if different from previous breakpoint value
+		} @else if($current-size != $font-size or $current-line-height != $line-height) {
+
+			@include mq($from: $bp-name) {
+				@if($current-size != $font-size) {
+					@include type-unit($font-size, $unit);
+				}
+
+				@if($line-height && $current-line-height != $line-height) {
+					line-height: $line-height;
+				}
+			}
+
+			// Cache current values
+			$current-size: $font-size;
+			$current-line-height : $line-height;
+		}
+
+		// Increment counter
+		$i: $i + 1;
+	}
+}

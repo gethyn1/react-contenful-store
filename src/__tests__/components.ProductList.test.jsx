@@ -42,8 +42,8 @@ describe('ProductList', () => {
       props.products = mockProducts
     })
 
-    it('renders the correct number of list items', () => {
-      const listItems = productList().find('li')
+    it('renders the correct number of product items', () => {
+      const listItems = productList().find('ProductItem')
       expect(listItems.length).toEqual(props.products.length)
     })
   })

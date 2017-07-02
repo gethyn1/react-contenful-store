@@ -1,0 +1,24 @@
+/* ==========================================================================
+   #BREAKPOINTS
+   ========================================================================== */
+
+/// Specify project breakpoints
+///
+/// @link https://github.com/sass-mq/sass-mq
+/// @group breakpoints
+$mq-breakpoints: (
+    mobile:  320px,
+    tablet:  740px,
+    desktop: 980px,
+    wide:    1300px
+);
+
+
+
+
+
+/// Specify breakpoint for browsers with no media query support
+///
+/// @link https://github.com/sass-mq/sass-mq
+/// @group breakpoints
+$mq-static-breakpoint: desktop;

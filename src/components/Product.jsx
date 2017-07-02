@@ -2,6 +2,8 @@
 
 import React from 'react'
 
+import Button from './Button'
+
 type Props = {
   isLoading: boolean,
   hasErrored: boolean,
@@ -58,7 +60,7 @@ class Product extends React.Component {
         <h2>{productTitle}</h2>
         <img src={`${productImage.fields.file.url}?w=300&h=300&fit=thumb&f=top`} alt={productImage.fields.title} />
         <p>{productDescription}</p>
-        <button onClick={this.onAddItemToCart}>Add to cart</button>
+        <Button text="Add to cart" onClick={this.onAddItemToCart} />
       </div>
     )
   }

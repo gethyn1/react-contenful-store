@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import styles from '../styles/components/_Button.scss'
+import styles from '../styles/6-components/_components.button.scss'
 
 type Props = {
   text: string,

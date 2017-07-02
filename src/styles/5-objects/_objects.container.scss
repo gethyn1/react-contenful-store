@@ -1,0 +1,58 @@
+/* ==========================================================================
+   #CONTAINER
+   ========================================================================== */
+
+@import '../global-import';
+
+
+
+
+
+/**
+  * 1. Set default container width.
+  * 2. Center container horizontally.
+  * 3. Add page gutters on left and right of content.
+  * 4. Set default container max-width.
+  * 5. Set width and max-width values for different breakpoints.
+  */
+
+.o-container {
+
+	// Check unit type and output value accordingly
+	@if is-percentage($container-width) {
+		width: $container-width; /* [1] */
+	} @else {
+		width: rem($container-width); /* [1] */
+	}
+
+	margin-left: auto; /* [2] */
+	margin-right: auto; /* [2] */
+	padding-left: rem($global-spacing-unit); /* [3] */
+	padding-right: rem($global-spacing-unit); /* [3] */
+	max-width: $container-max-width; /* [4] */
+
+	// Generate breakpoint container updates
+	@if (variable-exists(mq-breakpoints)) {
+
+		// Update container widths for breakpoints
+		@each $bp-name, $container-width in $container-bp-widths {
+			@include mq($from: $bp-name) {
+
+				// Check unit type and output value accordingly
+				@if is-percentage($container-width) {
+					width: map-get($container-bp-widths, $bp-name); /* [5] */
+				} @else {
+					width: rem(map-get($container-bp-widths, $bp-name)); /* [5] */
+				}
+			}
+		}
+
+		// Update container max-widths for breakpoints
+		@each $bp-name, $container-max-width in $container-bp-max-widths {
+			@include mq($from: $bp-name) {
+				max-width: rem(map-get($container-bp-max-widths, $bp-name)); /* [5] */
+			}
+		}
+	}
+
+}

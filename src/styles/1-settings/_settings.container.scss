@@ -1,0 +1,29 @@
+/* ==========================================================================
+   #CONTAINER
+   ========================================================================== */
+
+/// Default container width
+/// @group container
+$container-width: 100%;
+
+/// Breakpoint overides for container widths. Sass map properties names should
+/// map to breakpoint properties defined in $mq-breakpoints map in
+/// `1-settings/settings.breakpoints.scss`
+///
+/// @group container
+$container-bp-widths: (
+	wide: 1200px
+) !default;
+
+/// Default container max-width
+/// @group container
+$container-max-width: 1020px;
+
+/// Breakpoint overides for container max-widths. Sass map properties names
+/// should map to breakpoint properties defined in $mq-breakpoints map in
+/// `1-settings/settings.breakpoints.scss`
+///
+/// @group container
+$container-bp-max-widths: (
+	wide: 1200px
+) !default;

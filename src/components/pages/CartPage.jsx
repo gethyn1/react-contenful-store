@@ -5,11 +5,11 @@ import { Helmet } from 'react-helmet'
 
 import { APP_NAME } from '../../config'
 
-import SingleProduct from '../../containers/SingleProduct'
+import ProductsInCart from '../../containers/ProductsInCart'
 
-const title = 'Product page'
+const title = 'Cart page'
 
-const PostPage = () => (
+const CartPage = () => (
   <div>
     <Helmet
       title={`${APP_NAME}: ${title}`}
@@ -18,8 +18,8 @@ const PostPage = () => (
         { property: 'og:title', content: `${APP_NAME}: ${title}` },
       ]}
     />
-    <SingleProduct />
+    <ProductsInCart />
   </div>
 )
 
-export default PostPage
+export default CartPage

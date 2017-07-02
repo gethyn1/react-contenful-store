@@ -8,15 +8,19 @@ import TopBar from './TopBar'
 
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
+import CartPage from './pages/CartPage'
+
+import Container from './Container'
 
 const App = () => (
-  <div>
+  <Container>
     <TopBar />
     <Switch>
       <Route exact path={'/'} render={() => <HomePage />} />
+      <Route exact path={'/cart'} render={() => <CartPage />} />
       <Route path={'/product/:productId'} render={() => <ProductPage />} />
     </Switch>
-  </div>
+  </Container>
 )
 
 export default App

@@ -1,0 +1,19 @@
+/* ==========================================================================
+   #WIDTHS
+   ========================================================================== */
+
+/// Define fractions for layout widths (columns)
+/// @group widths
+$layout-fractions: 1 2 3 4;
+
+/// Generate width offsets. css intensive: only use when required
+/// @group widths
+$generate-offsets: false;
+
+/// Set a delimiter for use in breakpoint classes
+/// @group widths
+$bp-delimiter: \@;
+
+/// Set a delimiter for use in width classes
+/// @group widths
+$width-delimiter: \/;

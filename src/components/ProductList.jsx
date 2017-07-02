@@ -3,7 +3,7 @@
 import React from 'react'
 
 import ProductItem from './ProductItem'
-import ListBare from './ListBare'
+import { Layout, LayoutItem } from './Layout'
 
 type Props = {
   products: Array<Object>,
@@ -43,18 +43,18 @@ class ProductList extends React.Component {
       const id = product.sys.id
 
       return (
-        <li key={id}>
+        <LayoutItem cols="1/3@tablet" key={id}>
           <ProductItem id={id} title={productTitle} image={productImage} price={price} />
-        </li>
+        </LayoutItem>
       )
     })
 
     if (!hasErrored && !isLoading) {
       if (products.length) {
         return (
-          <ListBare>
+          <Layout>
             {productItems}
-          </ListBare>
+          </Layout>
         )
       }
 

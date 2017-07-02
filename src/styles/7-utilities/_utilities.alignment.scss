@@ -1,0 +1,16 @@
+/* ==========================================================================
+   #ALIGNMENT
+   ========================================================================== */
+
+:global(.u-center) {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+:global(.u-left) {
+	float: left;
+}
+
+:global(.u-right) {
+	float: right;
+}

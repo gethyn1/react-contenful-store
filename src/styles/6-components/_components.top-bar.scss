@@ -1,0 +1,25 @@
+/* ==========================================================================
+   #TOP BAR
+   ========================================================================== */
+
+@import '../global-import';
+
+.root {
+  margin-bottom: rem($global-spacing-unit-xlg);
+  padding-top: rem($global-spacing-unit);
+  position: relative;
+}
+
+.utils {
+  text-align: right;
+  margin-bottom: rem($global-spacing-unit-sm);
+}
+
+.branding {
+  text-align: center;
+}
+
+.logo {
+  color: inherit;
+  text-transform: uppercase;
+}

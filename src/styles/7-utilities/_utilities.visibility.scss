@@ -1,0 +1,42 @@
+/* ==========================================================================
+   #VISIBILITY
+   ========================================================================== */
+
+/**
+ * 1. Hide element visually but remain visible for screen readers.
+ * 2. Hide visually and from screen readers.
+ * 3. Display elements when specific media query is met.
+ * 4. Hide elements when specific media query is met.
+ */
+
+
+:global(.u-hidden-visually) {
+	@include hidden-visually(); /* [1]  */
+}
+
+:global(.u-hidden) {
+	display: none !important; /* [2]  */
+}
+
+:global([class*="u-visible"]) {
+	display: none; /* [3]  */
+}
+
+@if (variable-exists(mq-breakpoints)) {
+
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			:global(.u-hidden#{$bp-delimiter}#{$bp-name}) {
+				display: none !important;
+			}
+		}
+	}
+
+	@each $bp-name, $bp-value in $mq-breakpoints {
+		@include mq($from: $bp-name) {
+			:global(.u-visible#{$bp-delimiter}#{$bp-name}) {
+				display: block !important; /* [3]  */
+			}
+		}
+	}
+}

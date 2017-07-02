@@ -1,16 +1,24 @@
-@import './settings/color';
+@import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700');
 
-// @import './tools/..';
+@import "./global-import";
 
-@import './generic/boxsizing';
+@import "./3-generic/generic.boxsizing";
 @import "~normalize.css";
-@import './generic/reset';
+@import "./3-generic/generic.reset";
 
-@import './base/forms';
-@import './base/page';
+@import "./4-base/base.forms";
+@import "./4-base/base.media";
+@import "./4-base/base.page";
+@import "./4-base/base.tables";
 
-@import './objects/ListBare';
+// 5 - object styles generally included in React component
 
-@import './components/ButtonLink';
+// 6 - component styles generally included in React component
 
-// @import './utilities/..';
+@import "./7-utilities/utilities.alignment";
+@import "./7-utilities/utilities.color";
+@import "./7-utilities/utilities.headings";
+@import "./7-utilities/utilities.spacing";
+@import "./7-utilities/utilities.text";
+@import "./7-utilities/utilities.visibility";
+@import "./7-utilities/utilities.widths";

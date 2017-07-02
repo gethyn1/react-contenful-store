@@ -1,0 +1,18 @@
+/* ==========================================================================
+   #FORMS
+   ========================================================================== */
+
+/**
+ * 1. Remove default box-shadow and border radius on webit.
+ */
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+	-webkit-appearance: none; /* [1] */
+	border-radius: 0; /* [1] */
+	border: 1px solid;
+}

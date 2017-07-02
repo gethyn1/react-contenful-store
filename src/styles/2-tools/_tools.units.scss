@@ -1,0 +1,58 @@
+/* ==========================================================================
+   #UNITS
+   ========================================================================== */
+
+/// Convert pixel value to em
+///
+/// @group units
+///
+/// @param {Number} $pixels - a pixel based number value
+/// @param {Number} $context [16] - a context number for the calculation. This
+/// assumes a browser default of 16px.
+
+@function em($pixels, $context: 16) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
+
+/// Convert pixel value to rem
+///
+/// @group units
+///
+/// @param {Number} $pixels - a pixel based number value
+/// @param {Number} $context [16] - a context number for the calculation. This
+/// assumes a browser default of 16px.
+
+@function rem($pixels, $context: 16) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return ($pixels / $context) * 1rem;
+}
+
+
+/// Convert pixel value to percentage
+///
+/// @group units
+///
+/// @param {Number} $target - a pixel based number value
+/// @param {Number} $context [16] - a context number for the calculation. This
+/// assumes a browser default of 16px.
+
+@function percentage($target, $context: 16) {
+  @if $target == 0 { @return 0 }
+  @return ($target / $context) * 100%;
+}

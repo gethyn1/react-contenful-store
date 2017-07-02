@@ -10,45 +10,28 @@ type Props = {
   removeItem: Function,
 }
 
-class Cart extends React.Component {
-  static defaultProps: Object
+const handleRemoveItem = (id: String, quantity: number, removeItem: Function) => {
+  removeItem(id, quantity)
+}
 
-  constructor(props: Props) {
-    super(props)
+const Cart = ({ totalItems, items, removeItem }: Props) => {
+  const cartItems = items.map(item => (
+    <li key={item.id}>
+      <CartItem
+        item={item}
+        removeItem={() => handleRemoveItem(item.id, item.quantity, removeItem)}
+      />
+    </li>
+  ))
 
-    this.onDeleteItem = this.onDeleteItem.bind(this)
-  }
-
-  onDeleteItem: Function
-
-  onDeleteItem(id: String, quantity: number) {
-    this.props.removeItem(id, quantity)
-  }
-
-  props: Props
-
-
-  render() {
-    const {
-      items,
-      totalItems,
-    } = this.props
-
-    const cartItems = items.map(item => (
-      <li key={item.id}>
-        <CartItem item={item} removeItem={this.onDeleteItem} />
-      </li>
-    ))
-
-    return (
-      <div>
-        <p>You have {totalItems} items in your cart</p>
-        <ul>
-          {cartItems}
-        </ul>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <p>You have {totalItems} items in your cart</p>
+      <ul>
+        {cartItems}
+      </ul>
+    </div>
+  )
 }
 
 Cart.defaultProps = {

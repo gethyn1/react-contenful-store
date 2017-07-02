@@ -68,6 +68,7 @@
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
+    "sass-mq": "^3.3.2",
     "shortid": "^2.2.8",
     "yarn": "^0.24.5"
   }

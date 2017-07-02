@@ -1,0 +1,106 @@
+/* ==========================================================================
+   #WIDTHS
+   ========================================================================== */
+
+/// Specify fractions for fluid widths. Default fractions of: one whole, halves,
+/// thirds, quarters and fifths e.g:
+///
+///		.u-1/2
+///		.u-2/5
+///		.u-3/4
+///		.u-2/3
+///
+/// @group widths
+$fractions: 1 2 3 4 5 !default;
+
+
+
+
+
+/// Optionally generate classes to offset items by a certain width e.g:
+///
+///		.u-push-1/3
+///		.u-pull-2/4
+///		.u-pull-1/5
+///		.u-push-2/3
+///
+/// @group widths
+$offsets: false !default;
+
+
+
+
+
+/// Define widths delimiter for fraction based class names e.g:
+///
+///		<div class="u-1/4">
+///
+/// @group widths
+$widths-delimiter: \/ !default;
+
+
+
+
+
+/// Define the breakpoint separator for class name breakpoints suffix based on
+/// SASS MQ configuration e.g:
+///
+///		<div class="u-3/12@mobile">
+$widths-breakpoint-separator: \@ !default;
+
+
+
+
+
+/// Generate width classes. Pass in the columns we want the widths
+/// to have, and an optional suffix for responsive widths.
+///
+/// @param {List} $columns - a 2 item sass list in the format
+/// *numerator denominator*
+/// @param {String} $breakpoint - a string relating to specified breakpoint
+/// to be used as classname suffix
+///
+/// @author Harry Roberts
+/// @link https://github.com/csswizardry/inuit.css/
+/// @group widths
+@mixin generate-widths($columns, $breakpoint: null) {
+
+	// Loop through the number of columns for each denominator of our fractions.
+	@each $denominator in $columns {
+
+		// Begin creating a numerator for our fraction up until we hit the
+		// denominator.
+		@for $numerator from 1 through $denominator {
+
+			// Build a class in the format `.u-3/4[@<breakpoint>]`.
+			:global(.u-#{$numerator}#{$widths-delimiter}#{$denominator}#{$breakpoint}) {
+				width: ($numerator / $denominator) * 100% !important;
+			}
+
+			@if ($offsets == true) {
+
+			/**
+			* 1. Reset any leftover or conflicting `left`/`right` values.
+			*/
+
+			// Build a class in the format `.u-push-1/2[@<breakpoint>]`.
+			:global(.u-push-#{$numerator}#{$widths-delimiter}#{$denominator}#{$breakpoint}) {
+				position: relative !important;
+				right: auto !important; /* [1] */
+				left: ($numerator / $denominator) * 100% !important;
+			}
+
+			// Build a class in the format `.u-pull-5/6[@<breakpoint>]`.
+			:global(.u-pull-#{$numerator}#{$widths-delimiter}#{$denominator}#{$breakpoint}) {
+				position: relative !important;
+				right: ($numerator / $denominator) * 100% !important;
+				left: auto !important; /* [1] */
+			}
+
+			}
+
+		}
+
+	}
+
+}
