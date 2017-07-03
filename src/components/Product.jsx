@@ -8,6 +8,7 @@ import ItemQuantity from './ItemQuantity'
 import Ratio from './Ratio'
 import ColorPicker from './ColorPicker'
 import SizePicker from './SizePicker'
+import ImageGallery from './ImageGallery'
 
 import styles from '../styles/6-components/_components.product.scss'
 
@@ -132,6 +133,7 @@ class Product extends React.Component {
     }
 
     const {
+      imageGallery,
       color,
       productTitle,
       productImage,
@@ -145,9 +147,11 @@ class Product extends React.Component {
     return (
       <Layout>
         <LayoutItem cols="2/4@tablet">
+          {imageGallery ? <ImageGallery images={imageGallery} /> :
           <Ratio ratio="4:3">
             <img src={`${productImage.fields.file.url}?w=600&h=450&fit=thumb&f=top`} alt={productImage.fields.title} />
           </Ratio>
+          }
         </LayoutItem>
         <LayoutItem cols="2/4@tablet">
           <h2 className={`${styles.title} u-h2`}>{productTitle}</h2>

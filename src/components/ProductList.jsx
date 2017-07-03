@@ -54,7 +54,7 @@ class ProductList extends React.Component {
     if (!hasErrored && !isLoading) {
       if (products.length) {
         return (
-          <Layout>
+          <Layout size="sm">
             {productItems}
           </Layout>
         )

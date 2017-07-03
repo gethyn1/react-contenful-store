@@ -1,0 +1,89 @@
+/* ==========================================================================
+   #IMAGE GALLERY
+   ========================================================================== */
+
+@import '../global-import';
+
+.root {
+
+}
+
+.viewport {
+  overflow: hidden;
+}
+
+.slider {
+  display: table;
+  transition: transform .6s ease;
+}
+
+.slide {
+  display: table-cell;
+  vertical-align: top;
+}
+
+/**
+ * 1. Ensure images fill full width of parent to avoid white space.
+ */
+
+.img {
+  width: 100%; /* [1] */
+}
+
+.nav {
+  display: flex;
+}
+
+.thumb {
+  cursor: pointer;
+  opacity: .5;
+  transition: opacity .1s ease;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &.is-active {
+    opacity: 1;
+  }
+
+  + * {
+    margin-left: rem($global-spacing-unit-xsm);
+  }
+}
+
+.wrap {
+  position: relative;
+  margin-bottom: rem($global-spacing-unit-xsm);
+}
+
+.prev,
+.next {
+  background: #000;
+  border: none;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  height: rem($global-input-height);
+  width: rem($global-input-height);
+  transition: transform .1s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.prev {
+  left: 0;
+  transform-origin: left;
+}
+
+.next {
+  right: 0;
+  transform-origin: right;
+}
