@@ -21,7 +21,7 @@ export const cart = (state: Object = initialState, action: { type: string, paylo
       const updatedItems = state.items.map((item) => {
         const newItem = item
 
-        if (item.id === action.payload.item.id) {
+        if (item.id === action.payload.item.id && item.size === action.payload.item.size) {
           itemExists = true
           newItem.quantity += action.payload.quantity
         }

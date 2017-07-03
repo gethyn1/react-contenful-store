@@ -5,10 +5,19 @@
 @import '../global-import';
 
 .btn {
-  background-color: $palette-primary;
+  background-color: #000;
+  color: #fff;
   border: none;
   font-family: sans-serif;
   font-size: 1em;
   height: $global-input-height;
   padding: 0 1em;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-primary {
+  background-color: $palette-primary;
 }

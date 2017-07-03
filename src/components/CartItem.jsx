@@ -14,7 +14,7 @@ const CartItem = ({ item, removeItem }: Props) => {
 
   return (
     <div>
-      {item.title}: {item.quantity} - <button onClick={handleClick}>Remove</button>
+      {item.title}: {item.quantity} - {item.size} - <button onClick={handleClick}>Remove</button>
     </div>
   )
 }
