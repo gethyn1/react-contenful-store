@@ -27,6 +27,10 @@ $global-type-sizes: (
 /// @group global
 $global-spacing-unit: round($global-line-height) !default;
 
+/// Set height for buttons and inputs
+/// @group global
+$global-input-height: 36px;
+
 /// Set global css transition speed
 /// @group global
 $global-transition-speed: .2s;

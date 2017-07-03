@@ -1,14 +1,9 @@
 /* ==========================================================================
-   #BUTTON
+   #PRODUCT
    ========================================================================== */
 
 @import '../global-import';
 
-.btn {
-  background-color: $palette-primary;
-  border: none;
-  font-family: sans-serif;
-  font-size: 1em;
-  height: $global-input-height;
-  padding: 0 1em;
+.title {
+  margin-bottom: 0;
 }

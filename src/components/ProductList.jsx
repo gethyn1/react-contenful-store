@@ -44,7 +44,9 @@ class ProductList extends React.Component {
 
       return (
         <LayoutItem cols="1/3@tablet" key={id}>
-          <ProductItem id={id} title={productTitle} image={productImage} price={price} />
+          <div className="u-margin-bottom-lg">
+            <ProductItem id={id} title={productTitle} image={productImage} price={price} />
+          </div>
         </LayoutItem>
       )
     })

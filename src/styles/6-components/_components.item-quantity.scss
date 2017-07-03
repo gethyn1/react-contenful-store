@@ -1,0 +1,41 @@
+/* ==========================================================================
+   #ITEM QUANTITY
+   ========================================================================== */
+
+@import '../global-import';
+
+.root {
+  display: inline-block;
+}
+
+/*
+ * 1. Maintain vertical alignment between inline elements
+ */
+
+.button,
+.input {
+  background: #fff;
+  border: none;
+  height: rem($global-input-height);
+  text-align: center;
+  width: rem($global-input-height);
+  vertical-align: middle; /* [1] */
+}
+
+.button {
+  border: 1px solid $palette-border;
+}
+
+/*
+ * 1. Remove default browser styles from number input
+ */
+
+.input {
+  background: $palette-border;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* [1] */
+    margin: 0; /* [1] */
+  }
+}

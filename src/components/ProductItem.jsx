@@ -3,8 +3,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Button from './Button'
 import Ratio from './Ratio'
+
+import styles from '../styles/6-components/_components.product-item.scss'
 
 type Props = {
   id: String,
@@ -14,15 +15,16 @@ type Props = {
 }
 
 const ProductItem = ({ id, title, image, price }: Props) => (
-  <div>
-    <Link to={`/product/${String(id)}`}>
-      <Ratio ratio="4:3">
-        <img src={`${image.fields.file.url}?w=400&h=300&fit=thumb&f=top`} alt={image.fields.title} />
-      </Ratio>
-      <h2>{title}</h2>
+  <div className={styles.root}>
+    <Link to={`/product/${String(id)}`} className={styles.link}>
+      <div className={styles.image}>
+        <Ratio ratio="4:3">
+          <img src={`${image.fields.file.url}?w=400&h=300&fit=thumb&f=top`} alt={image.fields.title} />
+        </Ratio>
+      </div>
+      <h2 className={styles.title}>{title}</h2>
+      <p>&pound;{price}</p>
     </Link>
-    <p>&pound;{price}</p>
-    <Button text="Buy now" />
   </div>
 )
 

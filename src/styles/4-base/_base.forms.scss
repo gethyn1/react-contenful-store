@@ -12,7 +12,12 @@ input[type="number"],
 input[type="tel"],
 textarea,
 select {
+	font-family: inherit;
 	-webkit-appearance: none; /* [1] */
 	border-radius: 0; /* [1] */
-	border: 1px solid;
+}
+
+button,
+input[type="submit"] {
+	font-family: inherit;
 }
