@@ -1,0 +1,36 @@
+/* ==========================================================================
+   #BUTTON
+   ========================================================================== */
+
+@import '../global-import';
+
+.root {
+  display: inline-block;
+}
+
+.color {
+  display: inline-block;
+
+  + * {
+    margin-left: rem($global-spacing-unit-sm);
+  }
+}
+
+.swatch {
+  border-radius: 50%;
+  display: inline-block;
+  height: rem($global-input-height / 2);
+  width: rem($global-input-height / 2);
+  opacity: .25;
+  transition: $global-transition;
+
+  .available & {
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  .selected &,
+  .available:hover & {
+    transform: scale(1.4);
+  }
+}

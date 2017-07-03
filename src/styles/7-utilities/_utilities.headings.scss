@@ -28,3 +28,15 @@
 :global(.u-h3) {
 	@include generate-type-sizes($h3-type-sizes, 'rem');
 }
+
+
+
+
+
+/**
+ * Keylines for headings.
+ */
+
+:global(.u-h-key) {
+	border-bottom: 1px solid $palette-border;
+}

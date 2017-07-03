@@ -6,6 +6,7 @@ import Button from './Button'
 import { Layout, LayoutItem } from './Layout'
 import ItemQuantity from './ItemQuantity'
 import Ratio from './Ratio'
+import ColorPicker from './ColorPicker'
 import SizePicker from './SizePicker'
 
 import styles from '../styles/6-components/_components.product.scss'
@@ -22,6 +23,7 @@ type Props = {
 type State = {
   quantity: number,
   size: string,
+  color: Object,
 }
 
 class Product extends React.Component {
@@ -31,6 +33,9 @@ class Product extends React.Component {
     this.state = {
       quantity: 1,
       size: '',
+      color: {
+
+      },
     }
 
     this.onAddItemToCart = this.onAddItemToCart.bind(this)
@@ -38,6 +43,7 @@ class Product extends React.Component {
     this.increaseQuantity = this.increaseQuantity.bind(this)
     this.decreaseQuantity = this.decreaseQuantity.bind(this)
     this.onSizeSelect = this.onSizeSelect.bind(this)
+    this.onColorSelect = this.onColorSelect.bind(this)
   }
 
   state: State
@@ -46,12 +52,25 @@ class Product extends React.Component {
     this.props.fetchProduct(this.props.productId)
   }
 
+  componentWillReceiveProps(nextProps: Object) {
+    if (nextProps.product) {
+      const { color } = nextProps.product.fields
+
+      if (color) {
+        this.setState({
+          color: color[0],
+        })
+      }
+    }
+  }
+
   onAddItemToCart() {
     if (this.state.size) {
       this.props.addItemToCart({
         id: this.props.productId,
         title: this.props.product.fields.productTitle,
         size: this.state.size,
+        color: this.state.color,
       }, parseInt(this.state.quantity, 10))
     } else {
       // eslint-disable-next-line
@@ -61,10 +80,17 @@ class Product extends React.Component {
 
   onAddItemToCart: Function
   onSizeSelect: Function
+  onColorSelect: Function
 
   onSizeSelect(size: Object) {
     this.setState({
       size: size.size,
+    })
+  }
+
+  onColorSelect(color: Object) {
+    this.setState({
+      color,
     })
   }
 
@@ -106,6 +132,7 @@ class Product extends React.Component {
     }
 
     const {
+      color,
       productTitle,
       productImage,
       productDescription,
@@ -137,6 +164,7 @@ class Product extends React.Component {
               <Button text="Add to cart" onClick={this.onAddItemToCart} />
             </span>
           </div>
+          <h3 className="u-h4 u-h-key">Select a size</h3>
           <SizePicker
             sizes={[
               { size: 's', available: sizeSmall },
@@ -146,6 +174,16 @@ class Product extends React.Component {
             onSelect={this.onSizeSelect}
             selected={this.state.size}
           />
+          {color &&
+            <div>
+              <h3 className="u-h4 u-h-key">Select a color</h3>
+              <ColorPicker
+                colors={color}
+                onSelect={this.onColorSelect}
+                selected={this.state.color}
+              />
+            </div>
+          }
         </LayoutItem>
       </Layout>
     )

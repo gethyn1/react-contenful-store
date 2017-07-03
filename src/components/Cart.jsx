@@ -16,7 +16,7 @@ const handleRemoveItem = (id: String, quantity: number, removeItem: Function) =>
 
 const Cart = ({ totalItems, items, removeItem }: Props) => {
   const cartItems = items.map(item => (
-    <li key={item.id + item.size}>
+    <li key={item.id + item.size + item.color.hex}>
       <CartItem
         item={item}
         removeItem={() => handleRemoveItem(item.id, item.quantity, removeItem)}
