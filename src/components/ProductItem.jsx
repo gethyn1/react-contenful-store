@@ -18,8 +18,8 @@ const ProductItem = ({ id, title, image, price }: Props) => (
   <div className={styles.root}>
     <Link to={`/product/${String(id)}`} className={styles.link}>
       <div className={styles.image}>
-        <Ratio ratio="4:3">
-          <img src={`${image.fields.file.url}?w=400&h=300&fit=thumb&f=top`} alt={image.fields.title} />
+        <Ratio>
+          <img src={`${image.fields.file.url}?w=400&h=400&fit=thumb&f=center`} alt={image.fields.title} />
         </Ratio>
       </div>
       <h2 className={styles.title}>{title}</h2>

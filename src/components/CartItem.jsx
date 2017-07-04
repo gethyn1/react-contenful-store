@@ -2,20 +2,65 @@
 
 import React from 'react'
 
+import Flag from './Flag'
+import ItemQuantity from './ItemQuantity'
+
+import styles from '../styles/6-components/_components.cart-item.scss'
+
 type Props = {
   item: Object,
-  removeItem: Function,
+  onRemoveItem: Function,
+  onIncreaseQuantity: Function,
+  onDecreaseQuantity: Function,
 }
 
-const CartItem = ({ item, removeItem }: Props) => {
+const CartItem = ({ item, onRemoveItem, onIncreaseQuantity, onDecreaseQuantity }: Props) => {
   const handleClick = () => {
-    removeItem(item.id, item.quantity)
+    onRemoveItem(item, item.quantity)
+  }
+
+  const onQuantityChange = (event: Event & { target: HTMLInputElement }) => {
+    const quantity = parseInt(event.target.value, 10)
+    if (quantity > item.quantity) {
+      onIncreaseQuantity(item, quantity - item.quantity)
+    } else {
+      onDecreaseQuantity(item, item.quantity - quantity)
+    }
+  }
+
+  const handleIncrease = () => {
+    onIncreaseQuantity(item, 1)
+  }
+
+  const handleDecrease = () => {
+    const decrement = item.quantity === 1 ? 0 : 1
+    onDecreaseQuantity(item, decrement)
+  }
+
+  const swatchStyles = {
+    backgroundColor: item.color.hex,
   }
 
   return (
-    <div>
-      {item.title}: {item.quantity} - {item.size} - {item.color.hex}
-      <button onClick={handleClick}>Remove</button>
+    <div className={styles.root}>
+      <div>
+        <Flag src={`${item.image.file.url}?w=80&h=80&fit=thumb&f=center`}>
+          <p className={styles.title}><strong>{item.title}</strong></p>
+          <p className={styles.meta}>
+            Size: <span className={styles.size}>{item.size}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span className={styles.swatch} style={swatchStyles} />&nbsp;{item.color.name}
+          </p>
+        </Flag>
+      </div>
+      <div className={styles.quantity}>
+        <ItemQuantity
+          quantity={item.quantity}
+          onIncrease={handleIncrease}
+          onDecrease={handleDecrease}
+          onChange={onQuantityChange}
+        />
+        <button onClick={handleClick} className={styles.remove}>X remove</button>
+      </div>
     </div>
   )
 }

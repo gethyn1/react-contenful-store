@@ -3,6 +3,8 @@
 import React from 'react'
 import shortid from 'shortid'
 
+import Ratio from './Ratio'
+
 import styles from '../styles/6-components/_components.image-gallery.scss'
 
 type Props = {
@@ -73,10 +75,13 @@ class ImageGallery extends React.Component {
 
     const slides = images.map((image) => {
       const id = shortid.generate()
+      const { width, height } = image.fields.file.details.image
 
       return (
         <div key={id} className={styles.slide} style={slideStyles}>
-          <img className={styles.img} src={image.fields.file.url} alt={image.fields.title} />
+          <Ratio ratio={`${width}:${height}`}>
+            <img className={styles.img} src={image.fields.file.url} alt={image.fields.title} />
+          </Ratio>
         </div>
       )
     })

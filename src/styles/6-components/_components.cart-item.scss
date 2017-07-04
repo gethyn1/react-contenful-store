@@ -1,0 +1,55 @@
+/* ==========================================================================
+   #CART ITEM
+   ========================================================================== */
+
+@import '../global-import';
+
+.root {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.meta {
+  color: rgba(0,0,0,.3);
+  font-size: rem($small-font-size);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.size {
+  text-transform: uppercase;
+}
+
+/**
+ * 1. Magic number.
+ */
+
+.swatch {
+  border-radius: 50%;
+  display: inline-block;
+  height: rem(10px);
+  width: rem(10px);
+  vertical-align: middle;
+  margin-top: -1px;  /* [1] */
+}
+
+.quantity {
+  margin-left: auto;
+}
+
+.remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: rem($small-font-size);
+  margin-left: rem($global-spacing-unit-sm);
+  padding: 0;
+
+  &:hover {
+    border-bottom: 1px solid;
+  }
+}

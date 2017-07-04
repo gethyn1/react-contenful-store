@@ -1,7 +1,7 @@
 // @flow
 import { connect } from 'react-redux'
 
-import { cartRemoveItem } from '../actions/cart'
+import { cartAddItem, cartRemoveItem } from '../actions/cart'
 import Cart from '../components/Cart'
 
 const mapStateToProps = (state: Object) => ({
@@ -10,8 +10,14 @@ const mapStateToProps = (state: Object) => ({
 })
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  removeItem: (id: String, quantity: number) => {
-    dispatch(cartRemoveItem({ id, quantity }))
+  removeItem: (item: Object, quantity: number) => {
+    dispatch(cartRemoveItem({ item, quantity }))
+  },
+  increaseQuantity: (item: Object, quantity: number) => {
+    dispatch(cartAddItem({ item, quantity }))
+  },
+  decreaseQuantity: (item: Object, quantity: number) => {
+    dispatch(cartRemoveItem({ item, quantity }))
   },
 })
 

@@ -10,6 +10,12 @@ export const initialState = {
   items: [],
 }
 
+const isItem = (item: Object, payload: Object) => (
+  item.id === payload.item.id
+  && item.size === payload.item.size
+  && JSON.stringify(item.color) === JSON.stringify(payload.item.color)
+)
+
 export const cart = (state: Object = initialState, action: { type: string, payload: any }) => {
   switch (action.type) {
     case ADD_ITEM_TO_CART: {
@@ -21,11 +27,7 @@ export const cart = (state: Object = initialState, action: { type: string, paylo
       const updatedItems = state.items.map((item) => {
         const newItem = item
 
-        if (
-            item.id === action.payload.item.id
-            && item.size === action.payload.item.size
-            && JSON.stringify(item.color) === JSON.stringify(action.payload.item.color)
-        ) {
+        if (isItem(item, action.payload)) {
           itemExists = true
           newItem.quantity += action.payload.quantity
         }
@@ -54,23 +56,24 @@ export const cart = (state: Object = initialState, action: { type: string, paylo
       // Iterate over all items in cart
       // Remove items by specified quantity
       // If quantity is zero, completey remove item from cart
-      const { id, quantity } = action.payload
+      const { quantity } = action.payload
 
       const mapItems = state.items.map((item) => {
         const newItem = item
 
-        if (item.id === id) {
+        if (isItem(item, action.payload)) {
           newItem.quantity -= quantity
         }
 
         return newItem
       })
 
-      const filterItems = mapItems.filter(item => item.quantity)
+      // Filter items in cart for items with quantity greater than zero
+      const filteredItems = mapItems.filter(item => item.quantity)
 
       return Object.assign({}, state, {
         totalItems: state.totalItems - quantity,
-        items: filterItems,
+        items: filteredItems,
       })
     }
     default:

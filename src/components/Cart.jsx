@@ -3,23 +3,26 @@
 import React from 'react'
 
 import CartItem from './CartItem'
+import ListBare from './ListBare'
+
+import styles from '../styles/6-components/_components.cart.scss'
 
 type Props = {
   totalItems: number,
   items: Array<Object>,
   removeItem: Function,
+  increaseQuantity: Function,
+  decreaseQuantity: Function,
 }
 
-const handleRemoveItem = (id: String, quantity: number, removeItem: Function) => {
-  removeItem(id, quantity)
-}
-
-const Cart = ({ totalItems, items, removeItem }: Props) => {
+const Cart = ({ totalItems, items, removeItem, increaseQuantity, decreaseQuantity }: Props) => {
   const cartItems = items.map(item => (
-    <li key={item.id + item.size + item.color.hex}>
+    <li key={item.id + item.size + item.color.hex} className={styles.item}>
       <CartItem
         item={item}
-        removeItem={() => handleRemoveItem(item.id, item.quantity, removeItem)}
+        onRemoveItem={removeItem}
+        onIncreaseQuantity={increaseQuantity}
+        onDecreaseQuantity={decreaseQuantity}
       />
     </li>
   ))
@@ -27,9 +30,9 @@ const Cart = ({ totalItems, items, removeItem }: Props) => {
   return (
     <div>
       <p>You have {totalItems} items in your cart</p>
-      <ul>
+      <ListBare>
         {cartItems}
-      </ul>
+      </ListBare>
     </div>
   )
 }
