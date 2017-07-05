@@ -7,6 +7,7 @@ import { Route } from 'react-router-dom'
 import SiteAlert from '../containers/SiteAlert'
 
 import TopBar from './TopBar'
+import Footer from './Footer'
 
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
@@ -24,6 +25,7 @@ const App = () => (
         <Route exact path={'/cart'} render={() => <CartPage />} />
         <Route path={'/product/:productId'} render={() => <ProductPage />} />
       </Switch>
+      <Footer />
     </Container>
   </div>
 )

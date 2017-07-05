@@ -1,0 +1,11 @@
+/* ==========================================================================
+   #FOOTER
+   ========================================================================== */
+
+@import '../global-import';
+
+.root {
+  font-size: rem($small-font-size);
+  margin-top: rem($global-spacing-unit-xlg);
+  padding: rem($global-spacing-unit) 0;
+}
