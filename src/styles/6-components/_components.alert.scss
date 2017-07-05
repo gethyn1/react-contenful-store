@@ -1,0 +1,30 @@
+/* ==========================================================================
+   #ALERT
+   ========================================================================== */
+
+@import '../global-import';
+
+.root {
+  background: #eee;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: rem($global-spacing-unit);
+  text-align: center;
+  width: 100%;
+  z-index: 100;
+}
+
+.info {
+  background: $palette-info;
+  color: darken($palette-info, 50);
+}
+
+.success {
+  background: $palette-success;
+  color: #fff;
+}
+
+.message {
+  margin-bottom: 0;
+}

@@ -7,6 +7,7 @@ module.name_mapper='\(react-router\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flo
 module.name_mapper='\(react-router-dom\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
 module.name_mapper='\(react-helmet\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
 module.name_mapper='\(contentful\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
+module.name_mapper='\(react-addons-css-transition-group\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
 module.name_mapper='.*\(.css\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
 module.name_mapper='.*\(.scss\)' -> '<PROJECT_ROOT>/flow/GeneralStub.js.flow'
 

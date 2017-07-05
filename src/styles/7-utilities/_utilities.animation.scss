@@ -1,0 +1,25 @@
+/* ==========================================================================
+   #ANIMATIONS
+   ========================================================================== */
+
+/**
+ * A set of animation classses to use with React CSS transition group
+ */
+
+:global(.fade-appear) {
+  opacity: 0.01;
+}
+
+:global(.fade-appear.fade-appear-active) {
+  opacity: 1;
+  transition: opacity .2s ease;
+}
+
+:global(.slide-down-appear) {
+  transform: translateY(-100%);
+}
+
+:global(.slide-down-appear.slide-down-appear-active) {
+  transform: translateY(0);
+  transition: transform .3s ease-in-out;
+}

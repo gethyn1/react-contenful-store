@@ -14,6 +14,7 @@ import App from './components/App'
 import sass from './styles/style.scss'
 
 // Redux
+import * as alert from './reducers/alert'
 import * as cart from './reducers/cart'
 import * as product from './reducers/product'
 import * as products from './reducers/products'
@@ -24,6 +25,7 @@ const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMP
 /* eslint-enable no-underscore-dangle */
 
 const initialState = {
+  alert: alert.initialState,
   cart: cart.initialState,
   product: product.initialState,
   products: products.initialState,

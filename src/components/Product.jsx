@@ -19,6 +19,8 @@ type Props = {
   product: Object,
   fetchProduct: Function,
   addItemToCart: Function,
+  setAlert: Function,
+  removeAlert: Function,
 }
 
 type State = {
@@ -76,9 +78,12 @@ class Product extends React.Component {
         size: this.state.size,
         color: this.state.color,
       }, parseInt(this.state.quantity, 10))
+
+      this.props.setAlert('success', 'Product added to cart')
+      setTimeout(this.props.removeAlert, 5000)
     } else {
-      // eslint-disable-next-line
-      window.alert('Please select a size')
+      this.props.setAlert('info', 'Please select a size for the seleceted product')
+      setTimeout(this.props.removeAlert, 5000)
     }
   }
 

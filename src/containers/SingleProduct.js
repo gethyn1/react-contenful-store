@@ -3,6 +3,7 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
+import { alertSetAlert, alertRemoveAlert } from '../actions/alert'
 import { cartAddItem } from '../actions/cart'
 import { productFetchData } from '../actions/product'
 
@@ -21,6 +22,12 @@ const mapDispatchToProps = (dispatch: Function) => ({
   },
   addItemToCart: (item: Object, quantity: number) => {
     dispatch(cartAddItem({ item, quantity }))
+  },
+  setAlert: (type: string, message: string) => {
+    dispatch(alertSetAlert({ type, message }))
+  },
+  removeAlert: () => {
+    dispatch(alertRemoveAlert())
   },
 })
 

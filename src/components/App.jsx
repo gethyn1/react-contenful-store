@@ -4,6 +4,8 @@ import React from 'react'
 import { Switch } from 'react-router'
 import { Route } from 'react-router-dom'
 
+import SiteAlert from '../containers/SiteAlert'
+
 import TopBar from './TopBar'
 
 import HomePage from './pages/HomePage'
@@ -13,14 +15,17 @@ import CartPage from './pages/CartPage'
 import Container from './Container'
 
 const App = () => (
-  <Container>
-    <TopBar />
-    <Switch>
-      <Route exact path={'/'} render={() => <HomePage />} />
-      <Route exact path={'/cart'} render={() => <CartPage />} />
-      <Route path={'/product/:productId'} render={() => <ProductPage />} />
-    </Switch>
-  </Container>
+  <div>
+    <SiteAlert />
+    <Container>
+      <TopBar />
+      <Switch>
+        <Route exact path={'/'} render={() => <HomePage />} />
+        <Route exact path={'/cart'} render={() => <CartPage />} />
+        <Route path={'/product/:productId'} render={() => <ProductPage />} />
+      </Switch>
+    </Container>
+  </div>
 )
 
 export default App
