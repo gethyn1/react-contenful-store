@@ -10,7 +10,13 @@
 }
 
 .title {
+  color: inherit;
   margin-bottom: 0;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom: 1px solid;
+  }
 }
 
 .meta {

@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Flag from './Flag'
 import ItemQuantity from './ItemQuantity'
@@ -45,7 +46,9 @@ const CartItem = ({ item, onRemoveItem, onIncreaseQuantity, onDecreaseQuantity }
     <div className={styles.root}>
       <div>
         <Flag src={`${item.image.file.url}?w=80&h=80&fit=thumb&f=center`}>
-          <p className={styles.title}><strong>{item.title}</strong></p>
+          <Link to={`/product/${String(item.id)}`} className={styles.title}>
+            <strong>{item.title}</strong>
+          </Link>
           <p className={styles.meta}>
             Size: <span className={styles.size}>{item.size}</span>&nbsp;&nbsp;&nbsp;&nbsp;
             <span className={styles.swatch} style={swatchStyles} />&nbsp;{item.color.name}

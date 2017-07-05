@@ -36,9 +36,7 @@ class Product extends React.Component {
     this.state = {
       quantity: 1,
       size: '',
-      color: {
-
-      },
+      color: {},
     }
 
     this.onAddItemToCart = this.onAddItemToCart.bind(this)
@@ -68,22 +66,23 @@ class Product extends React.Component {
   }
 
   onAddItemToCart() {
-    const { productTitle, productImage } = this.props.product.fields
+    const { productTitle, productImage, price } = this.props.product.fields
 
     if (this.state.size) {
       this.props.addItemToCart({
         id: this.props.productId,
         title: productTitle,
         image: productImage.fields,
+        price,
         size: this.state.size,
         color: this.state.color,
       }, parseInt(this.state.quantity, 10))
 
       this.props.setAlert('success', 'Product added to cart')
-      setTimeout(this.props.removeAlert, 5000)
+      setTimeout(this.props.removeAlert, 2000)
     } else {
       this.props.setAlert('info', 'Please select a size for the seleceted product')
-      setTimeout(this.props.removeAlert, 5000)
+      setTimeout(this.props.removeAlert, 2000)
     }
   }
 

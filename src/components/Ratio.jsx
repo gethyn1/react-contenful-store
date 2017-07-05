@@ -17,7 +17,7 @@ const isSingleImage = (el: Object) => {
 
 // Add extra classes to a React children object by returning
 // a cloned React element
-const addClassList = (el: Object, classList: string) => {
+export const addClassList = (el: Object, classList: string) => {
   const newClassList = `${el.props.className} ${classList}`
 
   return React.cloneElement(el, { className: newClassList })

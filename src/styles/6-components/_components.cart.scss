@@ -11,3 +11,8 @@
     margin-botom: 0;
   }
 }
+
+.utils {
+  border-top: 1px solid $palette-border;
+  padding-top: rem($global-spacing-unit-sm);
+}

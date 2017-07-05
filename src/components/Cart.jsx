@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import CartItem from './CartItem'
 import ListBare from './ListBare'
@@ -27,12 +28,30 @@ const Cart = ({ totalItems, items, removeItem, increaseQuantity, decreaseQuantit
     </li>
   ))
 
+  if (items.length) {
+    const cartTotal = items.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+
+    return (
+      <div>
+        <div className="u-margin-bottom-lg">
+          <p>You have {totalItems} items in your cart</p>
+        </div>
+        <div className="u-margin-bottom-lg">
+          <ListBare>
+            {cartItems}
+          </ListBare>
+        </div>
+        <div className={styles.utils}>
+          <p>Total: &pound;{cartTotal}</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div>
-      <p>You have {totalItems} items in your cart</p>
-      <ListBare>
-        {cartItems}
-      </ListBare>
+    <div className="u-text-center">
+      <p>You currently have no items in your cart.</p>
+      <p>Find some products in our <Link to="/">store</Link></p>
     </div>
   )
 }
