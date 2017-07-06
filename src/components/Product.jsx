@@ -1,6 +1,9 @@
 // @flow
 
 import React from 'react'
+import { Helmet } from 'react-helmet'
+
+import { APP_NAME } from '../config'
 
 import Button from './Button'
 import { Layout, LayoutItem } from './Layout'
@@ -152,51 +155,60 @@ class Product extends React.Component {
     } = product.fields
 
     return (
-      <Layout>
-        <LayoutItem cols="2/4@tablet">
-          {imageGallery ? <ImageGallery images={imageGallery} /> :
-          <Ratio>
-            <img src={`${productImage.fields.file.url}?w=600&h=600&fit=thumb&f=center`} alt={productImage.fields.title} />
-          </Ratio>
-          }
-        </LayoutItem>
-        <LayoutItem cols="2/4@tablet">
-          <h2 className={`${styles.title} u-h2`}>{productTitle}</h2>
-          <p>&pound;{price}</p>
-          <p>{productDescription}</p>
-          <div className="u-margin-bottom">
-            <ItemQuantity
-              quantity={this.state.quantity}
-              onChange={this.handleChange}
-              onIncrease={this.increaseQuantity}
-              onDecrease={this.decreaseQuantity}
-            />
-            <span className="u-margin-left">
-              <Button text="Add to cart" onClick={this.onAddItemToCart} />
-            </span>
-          </div>
-          <h3 className="u-h4 u-h-key">Select a size</h3>
-          <SizePicker
-            sizes={[
-              { size: 's', available: sizeSmall },
-              { size: 'm', available: sizeMedium },
-              { size: 'l', available: sizeLarge },
-            ]}
-            onSelect={this.onSizeSelect}
-            selected={this.state.size}
-          />
-          {color &&
-            <div>
-              <h3 className="u-h4 u-h-key">Select a color</h3>
-              <ColorPicker
-                colors={color}
-                onSelect={this.onColorSelect}
-                selected={this.state.color}
+      <div>
+        <Helmet
+          title={`${APP_NAME}: ${productTitle}`}
+          meta={[
+            { name: 'description', content: '' },
+            { property: 'og:title', content: `${APP_NAME}: ${productTitle}` },
+          ]}
+        />
+        <Layout>
+          <LayoutItem cols="2/4@tablet">
+            {imageGallery ? <ImageGallery images={imageGallery} /> :
+            <Ratio>
+              <img src={`${productImage.fields.file.url}?w=600&h=600&fit=thumb&f=center`} alt={productImage.fields.title} />
+            </Ratio>
+            }
+          </LayoutItem>
+          <LayoutItem cols="2/4@tablet">
+            <h2 className={`${styles.title} u-h2`}>{productTitle}</h2>
+            <p>&pound;{price}</p>
+            <p>{productDescription}</p>
+            <div className="u-margin-bottom">
+              <ItemQuantity
+                quantity={this.state.quantity}
+                onChange={this.handleChange}
+                onIncrease={this.increaseQuantity}
+                onDecrease={this.decreaseQuantity}
               />
+              <span className="u-margin-left">
+                <Button text="Add to cart" onClick={this.onAddItemToCart} />
+              </span>
             </div>
-          }
-        </LayoutItem>
-      </Layout>
+            <h3 className="u-h4 u-h-key">Select a size</h3>
+            <SizePicker
+              sizes={[
+                { size: 's', available: sizeSmall },
+                { size: 'm', available: sizeMedium },
+                { size: 'l', available: sizeLarge },
+              ]}
+              onSelect={this.onSizeSelect}
+              selected={this.state.size}
+            />
+            {color &&
+              <div>
+                <h3 className="u-h4 u-h-key">Select a color</h3>
+                <ColorPicker
+                  colors={color}
+                  onSelect={this.onColorSelect}
+                  selected={this.state.color}
+                />
+              </div>
+            }
+          </LayoutItem>
+        </Layout>
+      </div>
     )
   }
 }
