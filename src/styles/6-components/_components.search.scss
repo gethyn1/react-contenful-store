@@ -1,0 +1,78 @@
+/* ==========================================================================
+   #ALERT
+   ========================================================================== */
+
+@import '../global-import';
+
+.icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    color: $palette-primary;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.overlay {
+  background: rgba(255,255,255,.8);
+  padding: rem($global-spacing-unit-lg) 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 101;
+}
+
+.wrap {
+  background: #fff;
+  box-shadow: 0 0 0px 3px rgba(0, 0, 0, 0.05);
+  padding: rem($global-spacing-unit);
+  max-width: rem(500);
+  margin: auto;
+}
+
+.input {
+  border: 2px solid;
+  font-style: italic;
+  padding: rem($global-spacing-unit);
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.list {
+  margin: rem($global-spacing-unit) 0 0;
+}
+
+.item {
+  border-bottom: 1px solid $palette-border;
+  cursor: pointer;
+  margin-bottom: rem($global-spacing-unit);
+  padding-bottom: rem($global-spacing-unit);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.status {
+  color: #ccc;
+  font-style: italic;
+  text-align: center;
+  margin-top: rem($global-spacing-unit);
+}

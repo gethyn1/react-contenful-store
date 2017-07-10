@@ -3,3 +3,15 @@
    ========================================================================== */
 
 @import '../global-import';
+
+.root {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.item {
+  + * {
+    margin-left: rem($global-spacing-unit-xsm);
+  }
+}

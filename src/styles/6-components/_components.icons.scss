@@ -1,0 +1,38 @@
+/* ==========================================================================
+   #ICONS
+   ========================================================================== */
+
+@import '../global-import';
+
+/**
+ * Create a set of icon classes to be used with svg icon sprite. To enable even
+ * spacing of icons positioned next to each other (horizontally), icons are
+ * sized using classes that define height in px, the width is calcualted
+ * based on the icon height and width:height ratio defined in
+ * settings/_settings.icons.scss.
+ *
+ * <svg class="u-icon u-icon-twitter-32">
+ *   <use xlink:href="#twitter"></use>
+ * </svg>
+ *
+ * The above markup creates a Twitter icon with 32px height and proportional
+ * width.
+ *
+ * 1. Set default fill for all icons.
+ * 2. Ensure click events work when icon is used in a button.
+ * 3. Create icon width / heights from $icon-sizes and $icon-ratios
+ */
+
+.c-icon {
+	fill: currentColor; /* [1] */
+  pointer-events: none; /* [2] */
+}
+
+@each $size in $icon-sizes {
+	@each $name, $ratio in $icon-ratios {
+		.c-icon-#{$name}-#{$size} {
+			height: #{$size}px; /* [3] */
+			width: #{$size * $ratio}px; /* [3] */
+		}
+	}
+}

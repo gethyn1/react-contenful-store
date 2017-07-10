@@ -18,6 +18,7 @@ import * as alert from './reducers/alert'
 import * as cart from './reducers/cart'
 import * as product from './reducers/product'
 import * as products from './reducers/products'
+import * as search from './reducers/search'
 import rootReducer from './reducers/index'
 
 /* eslint-disable no-underscore-dangle */
@@ -29,6 +30,7 @@ const initialState = {
   cart: cart.initialState,
   product: product.initialState,
   products: products.initialState,
+  search: search.initialState,
 }
 
 const store = createStore(

@@ -57,6 +57,10 @@ class Product extends React.Component {
   }
 
   componentWillReceiveProps(nextProps: Object) {
+    if (nextProps.productId !== this.props.productId) {
+      this.props.fetchProduct(nextProps.productId)
+    }
+
     if (nextProps.product) {
       const { color } = nextProps.product.fields
 

@@ -13,7 +13,7 @@ import { APP_NAME } from '../config'
 const navItems = [
   {
     id: '1',
-    title: 'Home',
+    title: 'Products',
     link: '/',
   },
   {

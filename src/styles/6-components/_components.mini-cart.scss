@@ -6,10 +6,32 @@
 
 .link {
   color: inherit;
+  display: inline-block;
   text-decoration: none;
+  position: relative;
+  vertical-align: middle;
 
   &:hover {
-    border-bottom: 2px solid;
+    //border-bottom: 2px solid;
     color: $palette-primary;
+  }
+}
+
+.count {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  font-size: rem(12);
+  width: rem(20);
+  height: rem(20);
+  line-height: rem(20);
+  position: absolute;
+  top: -5px;
+  right: -10px;
+
+  &.has-items {
+    background-color: $palette-primary;
   }
 }
