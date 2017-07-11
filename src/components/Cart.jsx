@@ -49,7 +49,7 @@ const Cart = ({ totalItems, items, removeItem, increaseQuantity, decreaseQuantit
   }
 
   return (
-    <div className="u-text-center">
+    <div className="s-body u-text-center">
       <p>You currently have no items in your cart.</p>
       <p>Find some products in our <Link to="/">store</Link></p>
     </div>

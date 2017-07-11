@@ -7,7 +7,7 @@ import { APP_NAME } from '../../config'
 
 import ProductsInCart from '../../containers/ProductsInCart'
 
-const title = 'Cart page'
+const title = 'Cart'
 
 const CartPage = () => (
   <div className="u-padding-top">

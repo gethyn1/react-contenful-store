@@ -1,15 +1,13 @@
 /* ==========================================================================
-   #TEXT
+   #BODY
    ========================================================================== */
 
-:global(.u-text-left) {
-	text-align: right;
-}
+:global(.s-body) {
+	a {
+    color: $palette-primary;
 
-:global(.u-text-center) {
-	text-align: center;
-}
-
-:global(.u-text-right) {
-	text-align: right;
+    &:hover {
+      color: darken($palette-primary, 10);
+    }
+  }
 }

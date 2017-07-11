@@ -1,0 +1,19 @@
+/* ==========================================================================
+   #TEXT
+   ========================================================================== */
+
+:global(.u-text-left) {
+	text-align: right;
+}
+
+:global(.u-text-center) {
+	text-align: center;
+}
+
+:global(.u-text-right) {
+	text-align: right;
+}
+
+:global(.u-link-default) {
+	color: $palette-primary;
+}
