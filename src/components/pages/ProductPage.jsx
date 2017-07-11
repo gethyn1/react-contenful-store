@@ -10,7 +10,7 @@ import SingleProduct from '../../containers/SingleProduct'
 const title = 'Product page'
 
 const PostPage = () => (
-  <div>
+  <div className="u-padding-top">
     <Helmet
       title={`${APP_NAME}: ${title}`}
       meta={[

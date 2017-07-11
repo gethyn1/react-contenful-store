@@ -6,18 +6,28 @@
 
 .btn {
   background-color: #000;
-  color: #fff;
   border: none;
-  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
   font-size: 1em;
-  height: $global-input-height;
-  padding: 0 1em;
+  height: rem($global-input-height);
+  line-height: rem($global-input-height);
+  padding: 0 rem($global-spacing-unit);
+  text-decoration: none;
+  white-space: nowrap;
 
   &:focus {
     outline: none;
   }
 }
 
-.btn-primary {
+.primary {
   background-color: $palette-primary;
+  border-radius: $global-radius;
+  transition: all 1s ease;
+
+  &:hover {
+    background-color: $palette-secondary;
+    border-radius: $global-radius;
+  }
 }
