@@ -64,11 +64,9 @@ class Product extends React.Component {
     if (nextProps.product) {
       const { color } = nextProps.product.fields
 
-      if (color) {
-        this.setState({
-          color: color[0],
-        })
-      }
+      this.setState({
+        color: color ? color[0] : {},
+      })
     }
   }
 
