@@ -17,7 +17,7 @@ const CartPage = () => (
       ]}
     />
     <h1 className="u-h2">About the store</h1>
-    <p>This online store is built using React, Redux and the <a href="https://www.contentful.com/" target="_blank" rel="noopener noreferrer">Contentful</a> API, and is deployed to <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>.</p>
+    <p>This online store is built using React, Redux and the <a href="https://www.contentful.com/" target="_blank" rel="noopener noreferrer">Contentful</a> API, and is deployed to <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>. The store is a work in progress with the aim of exploring front end technologies. You can view the code repository and current issues on <a href="https://github.com/gethyn1/react-contenful-store" target="_blank" rel="noopener noreferrer">Github</a>.</p>
     <p>The store is built using the following technologies:</p>
     <ul>
       <li>React with ES6</li>
