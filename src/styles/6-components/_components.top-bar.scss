@@ -5,7 +5,7 @@
 @import '../global-import';
 
 .root {
-  margin-bottom: rem($global-spacing-unit-xlg);
+  margin-bottom: rem($global-spacing-unit-lg);
   padding-top: rem($global-spacing-unit);
   position: relative;
 }
@@ -19,6 +19,6 @@
 }
 
 .logo {
-  color: inherit;
-  text-transform: uppercase;
+  font-family: 'Pacifico', sans-serif;
+  font-weight: normal;
 }

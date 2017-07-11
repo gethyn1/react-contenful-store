@@ -35,7 +35,7 @@ const TopBar = () => (
     </div>
 
     <h1 className={`${styles.branding} u-h1`}>
-      <Link to="/" className={styles.logo}>{APP_NAME}</Link>
+      <Link to="/" className={styles.logo}>{APP_NAME}.</Link>
     </h1>
 
     <SiteNav items={navItems} />

@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet'
 const title = 'Page not found'
 
 const NotFoundPage = () => (
-  <div>
+  <div className="u-padding-top">
     <Helmet
       title={title}
     />

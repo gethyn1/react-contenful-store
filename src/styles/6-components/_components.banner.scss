@@ -1,0 +1,77 @@
+/* ==========================================================================
+   #BANNER
+   ========================================================================== */
+
+@import '../global-import';
+
+/**
+ * Creates a full width banner for the page
+ */
+
+
+/**
+ * 1. Ensures banner is full width even when inside restricted parent.
+ */
+
+.root {
+  width: 100vw; /* [1] */
+  position: relative; /* [1] */
+  left: 50%; /* [1] */
+  right: 50%; /* [1] */
+  margin-left: -50vw; /* [1] */
+  margin-right: -50vw; /* [1] */
+}
+
+
+/**
+ * 1. Ratio based banner sizing up to tablet size.
+ * 2. Height restricted sizing on wider devices.
+ */
+
+.image-wrapper {
+  background-color: rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: (9 / 8) * 100%; /* [1] */
+  max-width: rem(2000);
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 500px) {
+    height: rem(340); /* [2] */
+    padding-bottom: 0; /* [2] */
+  }
+
+  @include mq($from: 'tablet') {
+    height: rem(500);
+  }
+}
+
+
+/**
+ * 1. Vertically / Horizontally center banner content.
+ */
+
+.content,
+.image {
+  position: absolute; /* [1] */
+  top: 50%; /* [1] */
+  left: 0; /* [1] */
+  width: 100%; /* [1] */
+  transform: translateY(-50%); /* [1] */
+}
+
+.content {
+  text-align: center; /* [1] */
+}
+
+.content-wrap {
+  background: rgba(255, 255, 255, .9);
+  border-radius: $global-radius * 2;
+  display: inline-block;
+  padding: rem($global-spacing-unit);
+
+  @include mq($from: 'tablet') {
+    padding: rem($global-spacing-unit-lg);
+  }
+}

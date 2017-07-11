@@ -71,6 +71,10 @@ export default {
 	        })
 	      ]
 	    },
+			{
+				test: /\.(jpe?g|gif|png|woff|ttf|wav|mp3)$/,
+				loader: 'file-loader',
+			},
 		]
   },
 	plugins: [

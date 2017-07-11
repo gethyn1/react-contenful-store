@@ -10,7 +10,7 @@ import ProductsInCart from '../../containers/ProductsInCart'
 const title = 'Cart page'
 
 const CartPage = () => (
-  <div>
+  <div className="u-padding-top">
     <Helmet
       title={`${APP_NAME}: ${title}`}
       meta={[
