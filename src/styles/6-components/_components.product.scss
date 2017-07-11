@@ -7,3 +7,14 @@
 .title {
   margin-bottom: 0;
 }
+
+.images {
+  position: relative;
+}
+
+.sticker {
+  position: absolute;
+  z-index: 1;
+  top: rem($global-spacing-unit-sm);
+  right: rem($global-spacing-unit-sm);
+}

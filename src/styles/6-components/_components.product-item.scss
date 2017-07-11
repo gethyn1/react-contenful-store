@@ -5,6 +5,7 @@
 @import '../global-import';
 
 .root {
+  position: relative;
   text-align: center;
 }
 
@@ -21,4 +22,11 @@
 
 .image {
   margin-bottom: rem($global-spacing-unit);
+}
+
+.sticker {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: rem($global-spacing-unit-sm);
 }

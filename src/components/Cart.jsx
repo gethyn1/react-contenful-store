@@ -42,7 +42,7 @@ const Cart = ({ totalItems, items, removeItem, increaseQuantity, decreaseQuantit
           </ListBare>
         </div>
         <div className={styles.utils}>
-          <p>Total: &pound;{cartTotal}</p>
+          <p className="u-h2">Total: &pound;{cartTotal}</p>
         </div>
       </div>
     )
