@@ -1,0 +1,20 @@
+/* ==========================================================================
+   #PRICE
+   ========================================================================== */
+
+@import '../global-import';
+
+.reduced,
+.original,
+.price {
+  display: inline-block;
+
+  + * {
+    margin-left: rem($global-spacing-unit-sm);
+  }
+}
+
+.original {
+  color: #ccc;
+  text-decoration: line-through;
+}

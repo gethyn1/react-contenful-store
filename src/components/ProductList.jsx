@@ -39,13 +39,19 @@ class ProductList extends React.Component {
     const { products, isLoading, hasErrored } = this.props
 
     const productItems = products.map((product) => {
-      const { productTitle, productImage, price } = product.fields
+      const { productTitle, productImage, price, reduction } = product.fields
       const id = product.sys.id
 
       return (
         <LayoutItem cols="1/3@tablet" key={id}>
           <div className="u-margin-bottom-lg">
-            <ProductItem id={id} title={productTitle} image={productImage} price={price} />
+            <ProductItem
+              id={id}
+              title={productTitle}
+              image={productImage}
+              price={price}
+              reduction={reduction}
+            />
           </div>
         </LayoutItem>
       )

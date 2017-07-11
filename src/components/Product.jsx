@@ -4,14 +4,17 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import { APP_NAME } from '../config'
+import { reducePrice } from '../utils/helpers'
 
 import Button from './Button'
-import { Layout, LayoutItem } from './Layout'
-import ItemQuantity from './ItemQuantity'
-import Ratio from './Ratio'
 import ColorPicker from './ColorPicker'
-import SizePicker from './SizePicker'
 import ImageGallery from './ImageGallery'
+import ItemQuantity from './ItemQuantity'
+import { Layout, LayoutItem } from './Layout'
+import Price from './Price'
+import Ratio from './Ratio'
+import SizePicker from './SizePicker'
+import Sticker from './Sticker'
 
 import styles from '../styles/6-components/_components.product.scss'
 
@@ -71,14 +74,14 @@ class Product extends React.Component {
   }
 
   onAddItemToCart() {
-    const { productTitle, productImage, price } = this.props.product.fields
+    const { productTitle, productImage, price, reduction } = this.props.product.fields
 
     if (this.state.size) {
       this.props.addItemToCart({
         id: this.props.productId,
         title: productTitle,
         image: productImage.fields,
-        price,
+        price: reduction ? reducePrice(price, reduction) : price,
         size: this.state.size,
         color: this.state.color,
       }, parseInt(this.state.quantity, 10))
@@ -151,6 +154,7 @@ class Product extends React.Component {
       productImage,
       productDescription,
       price,
+      reduction,
       sizeSmall,
       sizeMedium,
       sizeLarge,
@@ -167,15 +171,18 @@ class Product extends React.Component {
         />
         <Layout>
           <LayoutItem cols="2/4@tablet">
-            {imageGallery ? <ImageGallery images={imageGallery} /> :
-            <Ratio>
-              <img src={`${productImage.fields.file.url}?w=600&h=600&fit=thumb&f=center`} alt={productImage.fields.title} />
-            </Ratio>
-            }
+            <div className={styles.images}>
+              <Sticker text="sale" className={styles.sticker} />
+              {imageGallery ? <ImageGallery images={imageGallery} /> :
+              <Ratio>
+                <img src={`${productImage.fields.file.url}?w=600&h=600&fit=thumb&f=center`} alt={productImage.fields.title} />
+              </Ratio>
+              }
+            </div>
           </LayoutItem>
           <LayoutItem cols="2/4@tablet">
             <h2 className={`${styles.title} u-h2`}>{productTitle}</h2>
-            <p>&pound;{price}</p>
+            <Price price={price} reduction={reduction} className="u-margin-bottom" />
             <p>{productDescription}</p>
             <div className="u-margin-bottom">
               <ItemQuantity

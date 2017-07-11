@@ -1,0 +1,17 @@
+/* ==========================================================================
+   #STICKER
+   ========================================================================== */
+
+@import '../global-import';
+
+.root {
+  background: $palette-secondary;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  font-size: rem($small-font-size);
+  text-align: center;
+  width: rem(40);
+  height: rem(40);
+  line-height: rem(40);
+}
