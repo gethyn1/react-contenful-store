@@ -10,6 +10,7 @@ import TopBar from './TopBar'
 import Footer from './Footer'
 
 import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
 import ProductPage from './pages/ProductPage'
 import CartPage from './pages/CartPage'
 import NotFoundPage from './pages/NotFoundPage'
@@ -24,6 +25,7 @@ const App = () => (
       <Switch>
         <Route exact path={'/'} render={() => <HomePage />} />
         <Route exact path={'/cart'} render={() => <CartPage />} />
+        <Route exact path={'/about'} render={() => <AboutPage />} />
         <Route path={'/product/:productId'} render={() => <ProductPage />} />
         <Route path={'*'} render={() => <NotFoundPage />} />
       </Switch>

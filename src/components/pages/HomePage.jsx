@@ -13,7 +13,7 @@ import Button from '../Button'
 import smallImage from '../../images/content/banner-small.jpg'
 import largeImage from '../../images/content/banner-large.jpg'
 
-const title = 'Products'
+const title = 'React store'
 
 const bannerImages = {
   small: smallImage,

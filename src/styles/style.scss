@@ -15,11 +15,13 @@
 
 // 6 - component styles generally included in React component
 
-@import "./7-utilities/utilities.alignment";
-@import "./7-utilities/utilities.animation";
-@import "./7-utilities/utilities.color";
-@import "./7-utilities/utilities.headings";
-@import "./7-utilities/utilities.spacing";
-@import "./7-utilities/utilities.text";
-@import "./7-utilities/utilities.visibility";
-@import "./7-utilities/utilities.widths";
+@import "./7-scope/scope.body";
+
+@import "./8-utilities/utilities.alignment";
+@import "./8-utilities/utilities.animation";
+@import "./8-utilities/utilities.color";
+@import "./8-utilities/utilities.headings";
+@import "./8-utilities/utilities.spacing";
+@import "./8-utilities/utilities.text";
+@import "./8-utilities/utilities.visibility";
+@import "./8-utilities/utilities.widths";
