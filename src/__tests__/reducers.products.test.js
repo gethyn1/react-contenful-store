@@ -43,7 +43,7 @@ describe('Products reducer', () => {
     .toEqual(erroredTestState)
   })
 
-  it(`should handle ${PRODUCTS_HAS_ERRORED}`, () => {
+  it(`should handle ${PRODUCTS_FETCH_DATA_SUCCESS}`, () => {
     expect(
       products(initialState, {
         type: PRODUCTS_FETCH_DATA_SUCCESS,
