@@ -7,8 +7,10 @@ import Flag from './Flag'
 import ListBare from './ListBare'
 import Icon from './Icon'
 
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import searchIcon from '../images/icons/search.svg'
+import closeIcon from '../images/icons/close.svg'
+/* eslint-enable no-unused-vars */
 
 import styles from '../styles/6-components/_components.search.scss'
 
@@ -77,6 +79,9 @@ const Search = ({
       {isVisible &&
         <div role="button" tabIndex={0} className={styles.overlay} onClick={handleToggle}>
           <div className={styles.wrap}>
+            <button onClick={handleToggle} className={styles.close}>
+              <Icon type="close" size="20" />
+            </button>
             <h2 className="u-h2 u-text-center">Search the store</h2>
             <input className={styles.input} type="text" onChange={handleChange} placeholder="What are you looking for&hellip;" />
             {results.length > 0 &&
