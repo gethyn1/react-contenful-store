@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/travis/gethyn1/react-contenful-store.svg?style=flat-square)](https://travis-ci.org/gethyn1/react-contenful-store)
+
 # React Store
 
 An online store built with React, Redux and the Contentful API - designed to be deployed to Netlify. This is a work in progress.
