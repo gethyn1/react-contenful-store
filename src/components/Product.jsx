@@ -172,7 +172,7 @@ class Product extends React.Component {
         <Layout>
           <LayoutItem cols="2/4@tablet">
             <div className={styles.images}>
-              <Sticker text="sale" className={styles.sticker} />
+              {reduction > 0 && <Sticker text="sale" className={styles.sticker} />}
               {imageGallery ? <ImageGallery images={imageGallery} /> :
               <Ratio>
                 <img src={`${productImage.fields.file.url}?w=600&h=600&fit=thumb&f=center`} alt={productImage.fields.title} />
