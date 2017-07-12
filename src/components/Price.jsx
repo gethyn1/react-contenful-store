@@ -25,7 +25,7 @@ const Price = ({ price, reduction, className }: Props) => {
   }
 
   return (
-    <div>
+    <div className={className}>
       <span className={styles.amount}>&pound;{price}</span>
     </div>
   )
