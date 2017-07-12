@@ -14,7 +14,7 @@ const navItems = [
   {
     id: '1',
     title: 'Products',
-    link: '/',
+    link: '/products',
   },
   {
     id: '2',
@@ -23,8 +23,8 @@ const navItems = [
   },
   {
     id: '3',
-    title: 'Blog',
-    link: '/blog',
+    title: 'Contact',
+    link: '/contact',
   },
 ]
 
@@ -34,9 +34,9 @@ const TopBar = () => (
       <SiteUtils />
     </div>
 
-    <h1 className={`${styles.branding} u-h1`}>
+    <span className={`${styles.branding} u-h1`}>
       <Link to="/" className={styles.logo}>{APP_NAME}.</Link>
-    </h1>
+    </span>
 
     <SiteNav items={navItems} />
   </div>

@@ -36,7 +36,8 @@ const HomePage = () => (
         <Button type="Link" to="/about" text="Find out more" level="primary" />
       </Banner>
     </div>
-    <AllProducts />
+    <h3 className="u-h3">Latest products</h3>
+    <AllProducts limit="3" />
   </div>
 )
 
