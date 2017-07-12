@@ -12,7 +12,6 @@ type Props = {
 }
 
 type State = {
-  slideCount: number,
   activeSlide: number,
 }
 
@@ -21,7 +20,6 @@ class ImageGallery extends React.Component {
     super(props)
 
     this.state = {
-      slideCount: this.props.images.length,
       activeSlide: 0,
     }
 
@@ -44,7 +42,7 @@ class ImageGallery extends React.Component {
 
   nextSlide() {
     const increment = this.state.activeSlide + 1
-    const nextSlide = increment < this.state.slideCount ? increment : 0
+    const nextSlide = increment < this.props.images.length ? increment : 0
 
     this.setState({
       activeSlide: nextSlide,
@@ -53,7 +51,7 @@ class ImageGallery extends React.Component {
 
   prevSlide() {
     const decrement = this.state.activeSlide - 1
-    const prevSlide = decrement < 0 ? this.state.slideCount - 1 : decrement
+    const prevSlide = decrement < 0 ? this.props.images.length - 1 : decrement
 
     this.setState({
       activeSlide: prevSlide,
@@ -62,11 +60,11 @@ class ImageGallery extends React.Component {
 
   render() {
     const { images } = this.props
-    const { slideCount, activeSlide } = this.state
+    const { activeSlide } = this.state
 
     const sliderStyles = {
       width: `${images.length * 100}%`,
-      transform: `translateX(${-(100 / slideCount) * activeSlide}%)`,
+      transform: `translateX(${-(100 / images.length) * activeSlide}%)`,
     }
 
     const slideStyles = {
