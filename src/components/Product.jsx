@@ -87,10 +87,10 @@ class Product extends React.Component {
       }, parseInt(this.state.quantity, 10))
 
       this.props.setAlert('success', 'Product added to cart')
-      setTimeout(this.props.removeAlert, 2000)
+      setTimeout(this.props.removeAlert, 1000)
     } else {
       this.props.setAlert('info', 'Please select a size for the seleceted product')
-      setTimeout(this.props.removeAlert, 2000)
+      setTimeout(this.props.removeAlert, 1000)
     }
   }
 

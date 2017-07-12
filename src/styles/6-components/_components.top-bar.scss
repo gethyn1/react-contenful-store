@@ -15,10 +15,19 @@
 }
 
 .branding {
+  display: block;
+  margin-bottom: rem($global-spacing-unit-sm);
   text-align: center;
 }
 
 .logo {
+  color: inherit;
+  display: inline-block;
   font-family: 'Pacifico', sans-serif;
   font-weight: normal;
+  text-decoration: none;
+
+  &:hover {
+    color: $palette-primary;
+  }
 }

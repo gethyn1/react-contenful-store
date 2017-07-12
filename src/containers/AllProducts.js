@@ -11,9 +11,9 @@ const mapStateToProps = (state: Object) => ({
   isLoading: state.products.isLoading,
 })
 
-const mapDispatchToProps = (dispatch: Function) => ({
+const mapDispatchToProps = (dispatch: Function, ownProps: Object) => ({
   fetchData: () => {
-    dispatch(productsFetchData())
+    dispatch(productsFetchData(ownProps.limit))
   },
 })
 

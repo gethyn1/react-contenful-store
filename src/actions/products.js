@@ -21,10 +21,12 @@ export const productsFetchDataSuccess = (payload: Array<Object>) => ({
   payload,
 })
 
-export const productsFetchData = () => (dispatch: Function) => {
+export const productsFetchData = (limit: string = '50') => (dispatch: Function) => {
   dispatch(productsIsLoading(true))
 
-  return client.getEntries()
+  return client.getEntries({
+    limit,
+  })
     .then((response) => {
       dispatch(productsIsLoading(false))
       dispatch(productsFetchDataSuccess(response.items))
