@@ -4,7 +4,8 @@
 
 @import '../global-import';
 
-.icon {
+.icon,
+.close {
   background: none;
   border: none;
   cursor: pointer;
@@ -21,7 +22,7 @@
 
 .overlay {
   background: rgba(255,255,255,.8);
-  padding: rem($global-spacing-unit-lg) 0;
+  padding: rem($global-spacing-unit-lg) rem($global-spacing-unit);
   position: fixed;
   top: 0;
   left: 0;

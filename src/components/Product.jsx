@@ -169,7 +169,7 @@ class Product extends React.Component {
             { property: 'og:title', content: `${APP_NAME}: ${productTitle}` },
           ]}
         />
-        <Layout>
+        <Layout size="lg">
           <LayoutItem cols="2/4@tablet">
             <div className={styles.images}>
               {reduction > 0 && <Sticker text="sale" className={styles.sticker} />}
