@@ -2,7 +2,7 @@
 
 # React Store
 
-An online store built with React, Redux and the Contentful API - designed to be deployed to Netlify. This is a work in progress.
+An online store built with React, Redux and the Contentful API - designed to be deployed to Netlify. This is a work in progress. [https://cashier-deer-87272.netlify.com/](View the deployed store online here)
 
 ## Features
 
